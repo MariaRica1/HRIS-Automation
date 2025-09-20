@@ -31,7 +31,7 @@ export default defineConfig({
       slowMo: 2000
     },
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost/orangehrm/web/index.php/auth/login',
+    // baseURL: 'http://localhost/orangehrm/web/index.php/auth',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
