@@ -1,78 +1,78 @@
 import { Page } from "@playwright/test"
 export default class sideBar {
 
-    constructor(public page: Page) {}
+    constructor(public page: Page) { }
 
-    async clickAdminBtn(){
+    async clickAdminBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Admin')]")
         ])
     }
-        async clickPIMBtn(){
+    async clickPIMBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'PIM')]")
         ])
     }
-    async clickLeaveBtn(){
+    async clickLeaveBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Leave')]")
         ])
     }
-        async clickTimeBtn(){
+    async clickTimeBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Time')]")
         ])
     }
-    async clickRecruitmentBtn(){
+    async clickRecruitmentBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Recruitment')]")
         ])
     }
-    async clickMyInfoBtn(){
+    async clickMyInfoBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'My Info')]")
-        ])   
+        ])
     }
-    async clickPerfomanceBtn(){
+    async clickPerfomanceBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Performance')]")
-        ])   
+        ])
     }
-    async clickDashboardBtn(){
+    async clickDashboardBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Dashboard')]")
-        ])   
+        ])
     }
-    async clickDirectioryBtn(){
+    async clickDirectioryBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Directory')]")
-        ])   
+        ])
     }
-    async clickMaintanceBtn(){
+    async clickMaintanceBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Maintenance')]")
-        ])   
+        ])
     }
-    async clickClaimBtn(){
+    async clickClaimBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Claim')]")
-        ])   
+        ])
     }
-    async clickBuzzBtn(){
+    async clickBuzzBtn() {
         await Promise.all([
             this.page.waitForNavigation(),
             this.page.click("//li[contains(.,'Buzz')]")
-        ])   
+        ])
     }
 }

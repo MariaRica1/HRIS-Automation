@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "role": "Admin",
+            "username": "Administrator",
+            "password": "Sql123$%^"
+        },
+        {
+            "role": "Employee",
+            "username": "SophiaSunshine",
+            "password": "Sql123$%^"
+        }
+    ]
+}
