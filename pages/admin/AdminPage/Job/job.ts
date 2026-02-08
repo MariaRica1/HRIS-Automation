@@ -13,25 +13,25 @@ export class jobTitlePage {
     readonly cancelButton: Locator;
 
 
-    constructor(page: Page) { 
+    constructor(page: Page) {
         this.page = page;
         this.addButton = page.locator(`//button[contains(.,'Add')]`);
-        this.jobTitleInput = page. locator(`(//label[normalize-space(text())='Job Title']/following::input)[1]`);
+        this.jobTitleInput = page.locator(`(//label[normalize-space(text())='Job Title']/following::input)[1]`);
         this.jobDescriptionInput = page.locator(`//textarea[@placeholder='Type description here']`);
         this.fileInput = page.locator(`//div[normalize-space(text())='No file chosen']`);
         this.noteInput = page.locator(`//textarea[@placeholder='Add note']`);
         this.saveButton = page.locator(`//button[contains(.,'Save')]`);
         this.cancelButton = page.locator(`//button[contains(.,'Cancel')]`)
 
-        
+
     }
-    async addJobTitle (title: string, description: string){
+    async addJobTitle(title: string, description: string) {
         await this.addButton.click();
         await this.jobTitleInput.fill(title)
         await this.jobDescriptionInput.fill(description);
     }
 
-    async uploadJobSpecification(fileName: string){
+    async uploadJobSpecification(fileName: string) {
         const filePath = path.resolve(__dirname, `../../data/${fileName}`);
         await this.fileInput.setInputFiles(filePath);
     }
@@ -40,11 +40,11 @@ export class jobTitlePage {
         await this.noteInput.fill(note);
     }
 
-    async clickSave(){
+    async clickSave() {
         await this.saveButton.click();
     }
 
-    async clickCancel(){
+    async clickCancel() {
         await this.cancelButton.click();
     }
 

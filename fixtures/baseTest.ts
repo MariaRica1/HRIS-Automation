@@ -5,6 +5,7 @@ import * as testData from '../data/users.json'
 import { jobTitlePage } from '../pages/admin/AdminPage/Job/job';
 import { Sidebar } from '../pages/components/Sidebar';
 import { adminNav } from '../pages/components/admin.nav';
+import { newEmployeePage } from '../pages/PIM/addEmployee';
 
 
 type myFixture = {
@@ -15,6 +16,7 @@ type myFixture = {
     sidebarNav: Sidebar;
     adminPage: adminNav;
     jobPage: jobTitlePage;
+    addEmployeePage: newEmployeePage;
 
 };
 
@@ -47,7 +49,7 @@ export const test = base.extend<myFixture>({
         await loginPage.navigate();
         await loginPage.login('Administrator', 'Sql123$%^');
         await use(dashboardPage);
-    
+
     },
 
     sidebarNav: async ({ page }, use) => {
@@ -60,6 +62,10 @@ export const test = base.extend<myFixture>({
 
     jobPage: async ({ page }, use) => {
         await use(new jobTitlePage(page))
+    },
+
+    addEmployeePage: async ({ page }, use) => {
+        await use(new newEmployeePage(page))
     }
 });
 
