@@ -2,6 +2,9 @@ import { test as base } from '@playwright/test';
 import LoginPage from '../pages/Login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import * as testData from '../data/users.json'
+import { jobTitlePage } from '../pages/admin/AdminPage/Job/job';
+import { Sidebar } from '../pages/components/Sidebar';
+import { adminNav } from '../pages/components/admin.nav';
 
 
 type myFixture = {
@@ -9,6 +12,10 @@ type myFixture = {
     loginPage: LoginPage;
     dashboardPage: DashboardPage;
     loginAs: (role: string) => Promise<DashboardPage>
+    sidebarNav: Sidebar;
+    adminPage: adminNav;
+    jobPage: jobTitlePage;
+
 };
 
 export const test = base.extend<myFixture>({
@@ -19,17 +26,6 @@ export const test = base.extend<myFixture>({
         await use(loginPage);
     },
 
-
-    //defualt login user
-    dashboardPage: async ({ page }, use) => {
-        const loginPage = new LoginPage(page);
-        const dashboardPage = new DashboardPage(page);
-        await loginPage.navigate();
-        await loginPage.login('Administrator', 'Sql123$%^');
-        await use(dashboardPage);
-    },
-
-    
     loginAs: async ({ page }, use) => {
         const loginAs = async (role: string) => {
             const loginPage = new LoginPage(page);
@@ -42,8 +38,29 @@ export const test = base.extend<myFixture>({
             return new DashboardPage(page);
         };
         await use(loginAs);
-    }
+    },
 
+    //defualt login user
+    dashboardPage: async ({ page }, use) => {
+        const loginPage = new LoginPage(page);
+        const dashboardPage = new DashboardPage(page);
+        await loginPage.navigate();
+        await loginPage.login('Administrator', 'Sql123$%^');
+        await use(dashboardPage);
+    
+    },
+
+    sidebarNav: async ({ page }, use) => {
+        await use(new Sidebar(page))
+    },
+
+    adminPage: async ({ page }, use) => {
+        await use(new adminNav(page))
+    },
+
+    jobPage: async ({ page }, use) => {
+        await use(new jobTitlePage(page))
+    }
 });
 
 export { expect } from '@playwright/test';
