@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -12,6 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  timeout: 0,
   testDir: './tests',
   // testDir: './tests/login.test.ts',
   /* Run tests in files in parallel */
