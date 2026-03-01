@@ -6,6 +6,7 @@ import { jobTitlePage } from '../pages/admin/AdminPage/Job/job';
 import { Sidebar } from '../pages/components/Sidebar';
 import { adminNav } from '../pages/components/admin.nav';
 import { newEmployeePage } from '../pages/PIM/addEmployee';
+import myInfoSide from '../pages/my info/sidenav.myinfor';
 
 
 type myFixture = {
@@ -17,7 +18,7 @@ type myFixture = {
     adminPage: adminNav;
     jobPage: jobTitlePage;
     addEmployeePage: newEmployeePage;
-
+    infoSide: myInfoSide;
 };
 
 export const test = base.extend<myFixture>({
@@ -66,6 +67,10 @@ export const test = base.extend<myFixture>({
 
     addEmployeePage: async ({ page }, use) => {
         await use(new newEmployeePage(page))
+    },
+
+    infoSide: async ({ page }, use) => {
+        await use(new myInfoSide(page))
     }
 });
 
